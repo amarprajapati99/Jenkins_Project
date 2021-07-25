@@ -1,6 +1,7 @@
 package com.bridgelabz.selenium.jenkins;
 
 import com.bridgelabz.selenium.jenkins.base.BaseClass;
+import com.bridgelabz.selenium.jenkins.pages.Dashboard;
 import com.bridgelabz.selenium.jenkins.pages.Login;
 import com.bridgelabz.selenium.jenkins.utility.Log;
 import org.testng.Assert;
@@ -18,48 +19,74 @@ public class FacebookTesting extends BaseClass{
 
 
     @Test (priority = 1)
-    public void getTableData() throws SQLException {
+    public void getTableData () throws SQLException {
 
-        connection = this.getConnection();
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from login");
-        Log.info("************************ Table Data *******************");
-        System.out.println("id " + " username " + " password " + " salary ");
-        System.out.println("---------------------------------------------------------");
-        while (resultSet.next()) {
-            int id = resultSet.getInt(1);
-            String username = resultSet.getString(2);
-            String password = resultSet.getString(3);
-            String salary = resultSet.getString(4);
-            System.out.println(id + " " + username + " " + password + " " + salary);
+        connection = this.getConnection ();
+        Statement statement = connection.createStatement ();
+        ResultSet resultSet = statement.executeQuery ("select * from login");
+        Log.info ("************************ Table Data *******************");
+        System.out.println ("id " + " username " + " password " + " salary ");
+        System.out.println ("---------------------------------------------------------");
+        while (resultSet.next ()) {
+            int id = resultSet.getInt (1);
+            String username = resultSet.getString (2);
+            String password = resultSet.getString (3);
+            String salary = resultSet.getString (4);
+            System.out.println (id + " " + username + " " + password + " " + salary);
             rowCount++;
-            System.out.println("---------------------------------------------------------");
+            System.out.println ("---------------------------------------------------------");
         }
     }
 
 
-    @Test(priority = 2)
-    public void login_to_application_using_DB_data() throws InterruptedException, SQLException{
+    @Test (priority = 2)
+    public void login_to_application_using_DB_data () throws InterruptedException, SQLException {
 
-        setUpBrowserLaunching();
+        setUpBrowserLaunching ();
         ResultSet resultSet;
         String gmailId;
         String userPass;
-        connection = this.getConnection();
-        Statement statement = connection.createStatement();
-        resultSet = statement.executeQuery("select * from login LIMIT 1");
-        while (resultSet.next()) {
-            Login login = new Login(driver);
+        connection = this.getConnection ();
+        Statement statement = connection.createStatement ();
+        resultSet = statement.executeQuery ("select * from login LIMIT 1");
+        while (resultSet.next ()) {
+            Login login = new Login (driver);
 
-            gmailId = resultSet.getString(2);
-            userPass = resultSet.getString(3);
+            gmailId = resultSet.getString (2);
+            userPass = resultSet.getString (3);
 
-            login.setEmailId(gmailId);
-            login.setPassword(userPass);
-            login.clickLogin();
+            login.setEmailId (gmailId);
+            login.setPassword (userPass);
+            login.clickLogin ();
             String expectedEmail = "amarprajapati99@gmail.com";
-            Assert.assertEquals(gmailId, expectedEmail);
-            driver.close();
+            Assert.assertEquals (gmailId, expectedEmail);
+            driver.close ();
+        }
+    }
+
+    @Test (priority = 3)
+    public void setUp_Search_Facebook () throws InterruptedException, SQLException {
+
+        setUpBrowserLaunching ();
+        ResultSet resultSet;
+        String gmailId;
+        String userPass;
+        connection = this.getConnection ();
+        Statement statement = connection.createStatement ();
+        resultSet = statement.executeQuery ("select * from login LIMIT 1");
+        while (resultSet.next ()) {
+            Login login = new Login (driver);
+
+            gmailId = resultSet.getString (2);
+            userPass = resultSet.getString (3);
+
+            login.setEmailId (gmailId);
+            login.setPassword (userPass);
+            login.clickLogin ();
+
+            Dashboard dashboard = new Dashboard (driver);
+            dashboard.setSearchFacebook ();
+            driver.close ();
         }
     }
 }

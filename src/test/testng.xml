@@ -12,6 +12,7 @@
                 <methods>
                     <include name="getTableData"/>
                     <include name="login_to_application_using_DB_data"/>
+                    <include name="setUp_Search_Facebook"/>
                 </methods>
             </class>
         </classes>

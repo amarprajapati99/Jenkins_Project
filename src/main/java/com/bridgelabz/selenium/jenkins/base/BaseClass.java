@@ -3,6 +3,9 @@ package com.bridgelabz.selenium.jenkins.base;
 import com.bridgelabz.selenium.jenkins.utility.CustomException;
 import com.bridgelabz.selenium.jenkins.utility.IConstant;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,6 +21,8 @@ public class BaseClass implements IConstant{
     public static WebDriver driver;
     static Connection connection;
 
+    @Severity (SeverityLevel.CRITICAL)
+    @Story ("Connection to the database")
     @BeforeTest
     public Connection getConnection() {
         try {
@@ -36,6 +41,8 @@ public class BaseClass implements IConstant{
         return connection;
     }
 
+    @Severity (SeverityLevel.CRITICAL)
+    @Story ("Lunching the browser")
     public void setUpBrowserLaunching() throws InterruptedException {
 
         ChromeOptions options = new ChromeOptions();

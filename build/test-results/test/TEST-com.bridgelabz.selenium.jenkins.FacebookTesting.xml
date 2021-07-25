@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bridgelabz.selenium.jenkins.FacebookTesting" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-25T06:21:06" hostname="DESKTOP-9TKB724" time="74.64">
+  <properties/>
+  <testcase name="setUp_Search_Facebook" classname="com.bridgelabz.selenium.jenkins.FacebookTesting" time="74.64"/>
+  <system-out><![CDATA[Server is connected
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 92.0.4515.43 (8c61b7e2989f2990d42f859cac71319137787cce-refs/branch-heads/4515@{#306}) on port 14895
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Jul 25, 2021 11:51:09 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
