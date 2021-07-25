@@ -1,7 +1,6 @@
 package com.bridgelabz.selenium.jenkins;
 
 import com.bridgelabz.selenium.jenkins.base.BaseClass;
-import com.bridgelabz.selenium.jenkins.pages.Dashboard;
 import com.bridgelabz.selenium.jenkins.pages.Login;
 import com.bridgelabz.selenium.jenkins.utility.Log;
 import org.testng.Assert;
@@ -60,32 +59,6 @@ public class FacebookTesting extends BaseClass{
             login.clickLogin ();
             String expectedEmail = "amarprajapati99@gmail.com";
             Assert.assertEquals (gmailId, expectedEmail);
-            driver.close ();
-        }
-    }
-
-    @Test (priority = 3)
-    public void setUp_Search_Facebook () throws InterruptedException, SQLException {
-
-        setUpBrowserLaunching ();
-        ResultSet resultSet;
-        String gmailId;
-        String userPass;
-        connection = this.getConnection ();
-        Statement statement = connection.createStatement ();
-        resultSet = statement.executeQuery ("select * from login LIMIT 1");
-        while (resultSet.next ()) {
-            Login login = new Login (driver);
-
-            gmailId = resultSet.getString (2);
-            userPass = resultSet.getString (3);
-
-            login.setEmailId (gmailId);
-            login.setPassword (userPass);
-            login.clickLogin ();
-
-            Dashboard dashboard = new Dashboard (driver);
-            dashboard.setSearchFacebook ();
             driver.close ();
         }
     }
