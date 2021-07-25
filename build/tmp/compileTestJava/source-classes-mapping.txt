@@ -1,0 +1,4 @@
+com/bridgelabz/selenium/jenkins/FacebookTesting.java
+ com.bridgelabz.selenium.jenkins.FacebookTesting
+com/bridgelabz/selenium/jenkins/PDFReaderTest.java
+ com.bridgelabz.selenium.jenkins.PDFReaderTest

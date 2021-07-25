@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.bridgelabz.selenium.jenkins.utility.listener.ExtentReporterNG"/>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="F:/Selenium/JenkinsProject/src/test/java/com/bridgelabz/selenium/jenkins/FacebookTesting.java">
+        <classes>
+            <class name="com.bridgelabz.selenium.jenkins.FacebookTesting">
+                <methods>
+                    <include name="getTableData"/>
+                    <include name="login_to_application_using_DB_data"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
